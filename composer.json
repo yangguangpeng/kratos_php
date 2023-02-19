@@ -1,0 +1,20 @@
+{
+    "name": "administrator/micro",
+    "autoload": {
+        "psr-4": {
+            "Administrator\\Micro\\": "src/",
+            "Api\\": "Api/",
+            "GPBMetadata\\": "GPBMetadata/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yangguangpeng",
+            "email": "646138471@qq.com"
+        }
+    ],
+    "require": {
+        "grpc/grpc": "~1.30.0",
+        "google/protobuf": "~v3.12.2"
+    }
+}
