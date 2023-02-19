@@ -31,15 +31,21 @@ $client = new BaseClient('127.0.0.1:8080', [
 //
 //实例化 TestRequest 请求类
 $request = new GetDemoRequest();
-$request->setUserId(1);
+$request->setUserId(100);
+
+$metadata = ['Authorization'=>['Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.e30.PyJpI17-b9uKZnUGk5YEzRPDYsA-8cNiT7crKGIHfBs']];
+//$metadata = [];
 
 //调用远程服务
-$get = $client->GetDemo($request)->wait();
-
+$get = $client->GetDemo($request,$metadata)->wait();
 
 list($reply, $status) = $get;
 
-//数组
-$getdata = $reply->getResult();
+if ($reply) {
+    //数组
+    $getdata = $reply->getResult();
+    var_dump($getdata);
+} else {
+    var_dump($status);
+}
 
-var_dump($getdata);
